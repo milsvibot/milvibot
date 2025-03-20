@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Coreano</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #chatbox {
+            width: 80%;
+            max-width: 400px;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 300px;
+            overflow-y: auto;
+            background: #f9f9f9;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chatbot de Coreano</h1>
+    <div id="chatbox"></div>
+    <input type="text" id="userInput" placeholder="Digite sua dúvida...">
+    <button onclick="sendMessage()">Enviar</button>
+
+    <script>
+        const respostas = {
+            "olá": "안녕하세요! (Annyeonghaseyo!)",
+            "como se diz obrigado": "Obrigado em coreano é 감사합니다 (Gamsahamnida) ou 고마워요 (Gomawoyo) de forma informal.",
+            "o que significa 사랑해": "사랑해 (Saranghae) significa 'Eu te amo' em coreano!",
+        };
+
+        function sendMessage() {
+            let input = document.getElementById("userInput").value.toLowerCase();
+            let chatbox = document.getElementById("chatbox");
+            
+            chatbox.innerHTML += "<p><strong>Você:</strong> " + input + "</p>";
+            
+            let resposta = respostas[input] || "Desculpe, ainda não sei responder isso.";
+            
+            chatbox.innerHTML += "<p><strong>Bot:</strong> " + resposta + "</p>";
+            
+            document.getElementById("userInput").value = "";
+        }
+    </script>
+</body>
+</html>
+
