@@ -39,34 +39,20 @@
     <script>
         const respostas = {
             "olá": "안녕하세요! (Annyeonghaseyo!)",
-            "obrigado": "Obrigado em coreano é 감사합니다 (Gamsahamnida) ou 고마워요 (Gomawoyo) de forma informal.",
-            "사랑해": "사랑해 (Saranghae) significa 'Eu te amo' em coreano!",
-            "sim": "Sim em coreano é 네 (Ne) ou 예 (Ye).",
-            "não": "Não em coreano é 아니요 (Aniyo).",
-            "eu te amo": "Eu te amo se diz 사랑해 (Saranghae)! Gostaria de conhecer outra palavra?"
+            "como se diz obrigado": "Obrigado em coreano é 감사합니다 (Gamsahamnida) ou 고마워요 (Gomawoyo) de forma informal.",
+            "o que significa 사랑해": "사랑해 (Saranghae) significa 'Eu te amo' em coreano!",
         };
 
         function sendMessage() {
             let input = document.getElementById("userInput").value.toLowerCase();
             let chatbox = document.getElementById("chatbox");
-
+            
             chatbox.innerHTML += "<p><strong>Você:</strong> " + input + "</p>";
-
-            let resposta = "Desculpe, ainda não sei responder isso.";
-
-            // Verifica se a entrada do usuário contém alguma palavra-chave
-            for (let key in respostas) {
-                if (input.includes(key)) {
-                    resposta = respostas[key];
-                    break;
-                }
-            }
-
+            
+            let resposta = respostas[input] || "Desculpe, ainda não sei responder isso.";
+            
             chatbox.innerHTML += "<p><strong>Bot:</strong> " + resposta + "</p>";
-
-            // Rolagem automática para a última mensagem
-            chatbox.scrollTop = chatbox.scrollHeight;
-
+            
             document.getElementById("userInput").value = "";
         }
     </script>
