@@ -33,18 +33,22 @@
 <body>
     <h1>Chatbot de Coreano</h1>
     <div id="chatbox"></div>
-    <input type="text" id="userInput" placeholder="Digite sua dúvida..." onkeypress="handleKeyPress(event)">
+    <input type="text" id="userInput" placeholder="Digite sua dúvida...">
     <button onclick="sendMessage()">Enviar</button>
 
     <script>
         const respostas = {
-           "olá": "안녕하세요! (Annyeonghaseyo!)",
-    "como se diz obrigado": "Obrigado em coreano é 감사합니다 (Gamsahamnida) ou 고마워요 (Gomawoyo) de forma informal.",
-    "o que significa 사랑해": "사랑해 (Saranghae) significa 'Eu te amo' em coreano!",
-    "como se diz sim": "Sim em coreano é 네 (Ne) ou 예 (Ye).",
-    "como se diz não": "Não em coreano é 아니요 (Aniyo).",
-    "como falar eu te amo": "Eu te amo se diz 사랑해 (Saranghae)! Gostaria de conhecer outra palavra?";
-
+            "olá": "안녕하세요! (Annyeonghaseyo!)",
+            "obrigado": "Obrigado em coreano é 감사합니다 (Gamsahamnida) ou 고마워요 (Gomawoyo) de forma informal.",
+            "como falar obrigado": "Obrigado em coreano é 감사합니다 (Gamsahamnida) ou 고마워요 (Gomawoyo) de forma informal.",
+            "gratidão": "Obrigado em coreano é 감사합니다 (Gamsahamnida) ou 고마워요 (Gomawoyo) de forma informal.",
+            "o que significa 사랑해": "사랑해 (Saranghae) significa 'Eu te amo' em coreano!",
+            "como dizer eu te amo": "사랑해 (Saranghae) significa 'Eu te amo' em coreano!",
+            "como falar eu te amo": "Eu te amo se diz 사랑해 (Saranghae)! Gostaria de conhecer outra palavra?",
+            "como se diz sim": "Sim em coreano é 네 (Ne) ou 예 (Ye).",
+            "como falar sim": "Sim em coreano é 네 (Ne) ou 예 (Ye).",
+            "como se diz não": "Não em coreano é 아니요 (Aniyo).",
+            "como falar não": "Não em coreano é 아니요 (Aniyo)."
         };
 
         function sendMessage() {
@@ -64,11 +68,11 @@
             chatbox.scrollTop = chatbox.scrollHeight;
         }
 
-        function handleKeyPress(event) {
+        document.getElementById("userInput").addEventListener("keypress", function(event) {
             if (event.key === "Enter") {
                 sendMessage();
             }
-        }
+        });
     </script>
 </body>
 </html>
